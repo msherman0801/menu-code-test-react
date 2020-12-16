@@ -1,0 +1,23 @@
+.order-section { 
+    width: 75%;
+    margin: auto;
+}
+
+.order-button {
+    display: block;  
+    margin: 3% 0;
+    cursor: pointer;
+    align-items: center;  
+    justify-content: center;
+    background-color: #ea97ad;  
+    color: #fff;  
+    border-radius: 3px;  
+    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.18);
+    padding: 0.25em 0.75em;  
+    min-width: 10ch;  
+    min-height: 44px;
+  }
+
+.order-button:disabled {
+    background-color: #2c2c2c;
+}

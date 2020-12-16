@@ -1,0 +1,7 @@
+.error-section { 
+    width: 75%;
+    margin: auto;
+    height: 1%;
+    color: red;
+    font-weight: bold;
+}
