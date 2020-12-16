@@ -7,6 +7,7 @@ export default function Selection(props) {
     const [selection, setSelection] = useState({ diner: 0, menuItems: { starters: [], mains: [], desserts: [] }})
     const { starters, mains, desserts } = menuData
     
+    // updates component state for diner selections
     const updateDiner = (e) => {
         setSelection({
             ...selection,
@@ -14,6 +15,7 @@ export default function Selection(props) {
         })
     }
 
+    // updates component state for menu selection
     const updateMenuSelection = (e, course) => {
         const checked = e.target.checked
         const id = e.target.id
@@ -27,6 +29,7 @@ export default function Selection(props) {
         })
     }
 
+    // dynamically checking if selection state was updated, in order to fire validation method. I chose useEffect to avoid infinite looping issues.
     useEffect(() => {
         selectionValidation(selection.menuItems)
     }, [selection])

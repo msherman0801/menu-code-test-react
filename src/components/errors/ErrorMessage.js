@@ -5,10 +5,11 @@ export default function ErrorMessage(props) {
     
     const { validations } = props;
 
+    // static error messages based off of the validation conditionals in parent state
     const validationMessage = () => {
         if (validations.isInvalid) {
             const validationType = validations.validations
-            
+
             if (validationType.noCoursesSelected) {
                 return ""
             } else if (validationType.mainCourseNotSelected) {

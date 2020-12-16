@@ -25,6 +25,8 @@ class App extends React.Component {
         this.menuData = require('../menu-data.json')
     }
 
+
+    // updates parent state based off of a specific diners selections. This method is being passed down into the the selection component to be called.
     updateDinerState(selection) {
         const updatedDiners = this.state.diners
         const combinedCourses = Object.values(selection.menuItems).filter(course => {
@@ -40,6 +42,8 @@ class App extends React.Component {
         })
     }
 
+    // This method matches all validation concerns listed in the github prompt. If had used global state, I would have likely abstracted this logic into
+    // a selector file that grabs the data from state to formulate these conditional decisions. I would have then exported it from there so it's usable wherever
     selectionValidation(menuItems) {
         const restrictedMenuItems = { cheesecake: this.menuData.desserts.find(x => x.name.toLowerCase() === "cheesecake").id, 
                                 prawnCocktail: this.menuData.starters.find(x => x.name.toLowerCase() === "prawn cocktail").id,
@@ -56,6 +60,8 @@ class App extends React.Component {
 
         const snobbyWaiter = menuItems.starters.includes(restrictedMenuItems.prawnCocktail) && menuItems.mains.includes(restrictedMenuItems.salmonFillet)
         
+        // setting state here so the values can be used in multiple components, rather than just returning a boolean and calling this 
+        // function inside the disabled property of the submit button in the selection component
         this.setState({ 
             ...this.state,
             validations: {

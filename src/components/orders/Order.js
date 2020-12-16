@@ -4,6 +4,10 @@ import './styles.css'
 export default function Order(props) {
 
     const { orders, menuData } = props;
+
+    // due to the lack of redux state in this application, it made it difficult to pass around data (naturally). With the aim of using the suggestions for
+    // data structures given to me in the interview, I build this function that would relatively dynamically produce a list based off of meal ID's.
+    // it returns necessary JSX code
     const pendingOrder = () => {
         let total = 0;
         let jsx = []
